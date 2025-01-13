@@ -1,4 +1,6 @@
+
 package JAVA.lection1;
+import java.util.*;
 
 public class lection1 {
 public static void main(String[] args) {
@@ -33,15 +35,55 @@ public static void main(String[] args) {
     var a = 99;
     System.out.println(a);
     var b = 'r';
+    //var b = "'s";
     System.out.println(b);
     System.out.println(getType(a));
     System.out.println(getType(b));
-  
-    
-    
+    // var c = a+b; // Плохо так неявно преобразовывать в строку. Их создастся аж 4. Используй StringBuilder.
+    //System.out.println(c);
+    //System.out.println(getType(c)); будет 213 integer. Java преобразует char в код asci при его сложении с int. Результатом конкатенации будет int.
+    Integer wrappedA = Integer.valueOf(a); // Оборачиваем примитив int в объект класса обёртки integer. И у нас открывается много функционала как с экземпляром.
+    System.out.println("Wrapped Integer: "+wrappedA);
+    System.out.println(Integer.MAX_VALUE);
+    Boolean isEven = wrappedA%2==0;
+
+    if (isEven) {
+        System.out.println(wrappedA + " is even!");
+    }
+    else {
+        System.out.println(wrappedA + " is odd!");
+    }
+    System.out.println(++wrappedA); // Префиксный инкремент приоритетнее вывода в консоль
+    System.out.println(wrappedA++);// Вывод в консоль приорететнее постфиксного инкремента. +1 Будет после вывода.
+    System.out.println(wrappedA);
+    wrappedA--;
+    System.out.println(--wrappedA);
+    Random rand = new Random();
+    int dim = rand.nextInt(10);
+    //int randij = rand.nextInt(2001)-1000;
+    int[][]  arrint = new int[dim][dim];
+    for (int i = 0; i < arrint.length; i++) {
+        for (int j = 0; j < arrint.length; j++) {
+            arrint[i][j] = rand.nextInt(2001)-1000;
+            System.out.print(arrint[i][j] + " "); // Посмотрели форматированный вывод и массивы
+        }
+        System.out.println();
+    }
+
+    double[] arrdouble[] = new double[arrint.length][arrint.length];
+    for (int i = 0; i < arrdouble.length; i++) {
+        for (int j = 0; j < arrdouble.length; j++) {
+            arrdouble[i][j] = (double) arrint[i][j];
+            System.out.printf("%3d",arrdouble[i][j]);
+        }
+        System.out.println();
+    }
+    }
+
 }
 static String getType(Object obj) {
     return obj.getClass().getSimpleName(); //порой надо прописывать классы для применения методов
     //в частности, для определения типа данных примитива придется вызывать именно метод, написанный во вне.
 } 
+
 }
