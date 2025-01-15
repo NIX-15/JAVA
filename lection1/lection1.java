@@ -102,6 +102,7 @@ public class lection1 {
 
         fillArr(arrA);
         fillArr(arrB);
+        System.out.println("Done!");
     }
 
     static String getType(Object obj) {
@@ -121,11 +122,12 @@ public class lection1 {
                     arr[arr.length - 1] = 1;// что бы не нарушалась степень многочлена k
                 }
                 if (Math.abs(arr[arr.length - 1]) == 1) {
-                    System.out.print(arr[arr.length - 1] == 1 ? "x^" + (arr.length - 1) : "-x^" + (arr.length - 1)); // что
+                    
+                    System.out.print(arr[arr.length - 1] == 1 ? "+x^" + (arr.length - 1) : "-x^" + (arr.length - 1)); // что
                                                                                                                      // бы
                                                                                                                      // не
                                                                                                                      // показывал
-                                                                                                                     // 1x
+                                                                                                                     // 1x...
                 } else {
                     System.out.print(arr[arr.length - 1] + "x^" + (arr.length - 1));
                 }
