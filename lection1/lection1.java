@@ -94,7 +94,7 @@ public class lection1 {
         int k1 = iScanner.nextInt();
         System.out.printf("Введите степень многочлена B: ");
         int k2 = iScanner.nextInt();
-        System.out.printf("%d,%d", k1, k2);
+        System.out.printf("%d,%d \n", k1, k2);
         iScanner.close();
 
         int[] arrA = new int[k1];
@@ -117,19 +117,24 @@ public class lection1 {
     }
     public static void fillArr (int[] arr){
         Random rand = new Random();
-        System.out.print("Многочлен А: ");
-        arr[arr.length] = rand.nextInt(201)-100;
-        System.out.print(arr[arr.length]+"x^"+(arr.length-1));
-        for (int i = arr.length-1; i >= 1; i--) {
+        //System.out.print("Многочлен А: ");
+        arr[arr.length-1] = rand.nextInt(201)-100;
+        System.out.print(arr[arr.length-1]+"x^"+(arr.length));
+        for (int i = arr.length-1; i > 0; i--) {
             arr[i] = rand.nextInt(201)-100;
             if (arr[i]!=0) {
-            System.out.print(arr[i]>0 ? "+"+arr[i]+"x^"+(i-1):"-"+arr[i]+"x^"+(i-1));}
+            System.out.print(arr[i]>0 ? "+"+arr[i]+"x^"+(i):arr[i]+"x^"+(i));
+           //System.out.print(arr[i]+"x^"+(i-1));
+            }
             else{
                 continue;
             }
         }
         arr[0] = rand.nextInt(201)-100;
-        System.out.print(arr[0]>0 ? "+"+arr[0]:"-"+arr[0]);
+        if(arr[0]!=0){
+        System.out.println(arr[0]>0 ? "+"+arr[0]:arr[0]);
+        }
+      // доделать
     }
 
 }
