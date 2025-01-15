@@ -97,15 +97,9 @@ public class lection1 {
         System.out.printf("%d,%d \n", k1, k2);
         iScanner.close();
 
-        int[] arrA = new int[k1];
-        int[] arrB = new int[k2];
-        
-       /* for (int i = 0; i < arrA.length; i++) {
-            arrA[i] = rand.nextInt(201)-100;
-        }
-        for (int i = 0; i < arrB.length; i++) {
-            arrB[i] = rand.nextInt(201)-100;
-        }*/
+        int[] arrA = new int[k1 + 1];
+        int[] arrB = new int[k2 + 1];
+
         fillArr(arrA);
         fillArr(arrB);
     }
@@ -115,26 +109,46 @@ public class lection1 {
         // в частности, для определения типа данных примитива придется вызывать именно
         // метод, написанный во вне.
     }
-    public static void fillArr (int[] arr){
+
+    public static void fillArr(int[] arr) {
         Random rand = new Random();
-        //System.out.print("Многочлен А: ");
-        arr[arr.length-1] = rand.nextInt(201)-100;
-        System.out.print(arr[arr.length-1]+"x^"+(arr.length));
-        for (int i = arr.length-1; i > 0; i--) {
-            arr[i] = rand.nextInt(201)-100;
-            if (arr[i]!=0) {
-            System.out.print(arr[i]>0 ? "+"+arr[i]+"x^"+(i):arr[i]+"x^"+(i));
-           //System.out.print(arr[i]+"x^"+(i-1));
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            arr[i] = rand.nextInt(201) - 100;
+
+            if (i == arr.length - 1) {
+                if (arr[arr.length - 1] == 0) {
+                    arr[arr.length - 1] = 1;// что бы не нарушалась степень многочлена k
+                }
+                if (Math.abs(arr[arr.length - 1]) == 1) {
+                    System.out.print(arr[arr.length - 1] == 1 ? "x^" + (arr.length - 1) : "-x^" + (arr.length - 1)); // что
+                                                                                                                     // бы
+                                                                                                                     // не
+                                                                                                                     // показывал
+                                                                                                                     // 1x
+                } else {
+                    System.out.print(arr[arr.length - 1] + "x^" + (arr.length - 1));
+                }
             }
-            else{
-                continue;
+            if (i < arr.length - 1 && i > 0) {
+                if (arr[i] != 0) {
+                    if (Math.abs(arr[i]) == 1) {
+                        System.out.print(arr[i] == 1 ? "x^" + i : "-x^" + i);
+                    } else {
+                        System.out.print(arr[i] > 0 ? "+" + arr[i] + "x^" + i : arr[i] + "x^" + i);
+                    }
+
+                }
             }
+            if (i == 0) {
+                if (arr[0] != 0) {
+                    System.out.println(arr[0] > 0 ? "+" + arr[0] : arr[0]);
+                }
+
+            }
+
         }
-        arr[0] = rand.nextInt(201)-100;
-        if(arr[0]!=0){
-        System.out.println(arr[0]>0 ? "+"+arr[0]:arr[0]);
-        }
-      // доделать
+
     }
 
 }
