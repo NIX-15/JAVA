@@ -122,27 +122,27 @@ public class lection1 {
                     arr[arr.length - 1] = 1;// что бы не нарушалась степень многочлена k
                 }
                 if (Math.abs(arr[arr.length - 1]) == 1) {
-                    
-                    System.out.print(arr[arr.length - 1] == 1 ? "+x^" + (arr.length - 1) : "-x^" + (arr.length - 1)); // что
-                                                                                                                     // бы
-                                                                                                                     // не
-                                                                                                                     // показывал
-                                                                                                                     // 1x...
+
+                    System.out.print(arr[arr.length - 1] == 1 ? "x^" + (arr.length - 1) : "-x^" + (arr.length - 1)); // что
+                                                                                                                      // бы
+                                                                                                                      // не
+                                                                                                                      // показывал
+                                                                                                                      // 1x...
                 } else {
                     System.out.print(arr[arr.length - 1] + "x^" + (arr.length - 1));
                 }
             }
-            if (i < arr.length - 1 && i > 0) {
+            else if (i < arr.length - 1 && i > 0) {
                 if (arr[i] != 0) {
                     if (Math.abs(arr[i]) == 1) {
-                        System.out.print(arr[i] == 1 ? "x^" + i : "-x^" + i);
+                        System.out.print(arr[i] == 1 ? "+x^" + i : "-x^" + i);
                     } else {
                         System.out.print(arr[i] > 0 ? "+" + arr[i] + "x^" + i : arr[i] + "x^" + i);
                     }
 
                 }
             }
-            if (i == 0) {
+            else {
                 if (arr[0] != 0) {
                     System.out.println(arr[0] > 0 ? "+" + arr[0] : arr[0]);
                 }
