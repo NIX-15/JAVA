@@ -6,22 +6,24 @@ import java.util.*;
 
 public class les1task1 {
     public static void main(String[] args) {
-        filledArr();
-        polynomeFile(filledArr(), 1);
+        Scanner iScanner = new Scanner(System.in);
+        polynomeFile(filledArr(iScanner), 1);
+        polynomeFile(filledArr(iScanner), 2);
+        iScanner.close();
     }
 
-    static int[] filledArr() {
+    static int[] filledArr(Scanner iScan) {
         Random rand = new Random();
-        Scanner iScanner = new Scanner(System.in);
+        //Scanner iScanner = new Scanner(System.in);
         System.out.printf("Введите степень многочлена : ");
-        int k = iScanner.nextInt();
+        int k = iScan.nextInt();
 
         while (k < 2) {
             System.out.println("Ошибка ввода! Степень многчлена должна быть не меньше 2 (k<=2)!");
             System.out.printf("Введите степень многочлена : ");
-            k = iScanner.nextInt();
+            k = iScan.nextInt();
         }
-        iScanner.close();
+        //iScanner.close();
         int[] arr = new int[k + 1];
         for (int i = arr.length - 1; i >= 0; i--) {
             arr[i] = rand.nextInt(201) - 100;
@@ -74,15 +76,15 @@ public class les1task1 {
 
         }
         String polynome = sb.toString();
-        System.out.println(polynome);
-        /*try (
+        //System.out.println(polynome);
+        try (
 
                 FileWriter fw = new FileWriter(fileName, false)) {
             fw.write(polynome);
             fw.flush();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }*/
+        }
     }
 }
 
